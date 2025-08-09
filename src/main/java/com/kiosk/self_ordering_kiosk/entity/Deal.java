@@ -8,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "client")
@@ -20,27 +22,30 @@ public class Deal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    @ManyToMany
+    @JoinTable(
+            name = "deal_deal_group",
+            joinColumns = @JoinColumn(name = "deal_id"),
+            inverseJoinColumns = @JoinColumn(name = "deal_group_id")
+    )
+    private Set<DealGroups> dealGroups = new HashSet<>();
+
     @ManyToOne
     @JoinColumn(name = "banner_id", nullable = false)
     private Banner banner;
 
-    @Column
     private String description;
 
-    @Column
     private Double basePrice;
 
-    @Column
     private boolean isAvailable;
 
-    @Column
     private boolean isItemFixed;
 
     @CreationTimestamp

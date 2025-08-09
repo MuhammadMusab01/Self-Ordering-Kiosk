@@ -7,43 +7,34 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
-@Table(name = "menu_items")
+@Table(name = "deal_groups")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MenuItems {
+public class DealGroups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @ManyToMany
+    @JoinTable(
+            name = "menu_item_modifier_group",
+            joinColumns = @JoinColumn(name = "deal_group_id"),
+            inverseJoinColumns = @JoinColumn(name = "menu_item_id")
+    )
+    private Set<MenuItems> menuItems;
+
     private String name;
 
-    @Lob
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String image;
+    private Boolean isRequired = false;
 
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String description;
+    private Integer minLimit;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category categoryId;
-
-    private Boolean isSpecial;
-
-    private Double basePrice;
-
-    private Integer bannerId;
-
-    private Integer dealId;
-
-    private Boolean isAvailable;
+    private Integer maxLimit;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -52,5 +43,4 @@ public class MenuItems {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
 }

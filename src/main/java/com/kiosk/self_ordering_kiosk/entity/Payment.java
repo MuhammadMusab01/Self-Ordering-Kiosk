@@ -31,10 +31,8 @@ public class Payment {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "order_id", nullable = false)
     private Integer orderId;
 
-    @Column(nullable = false)
     private Double amount;
 
     @Enumerated(EnumType.STRING)

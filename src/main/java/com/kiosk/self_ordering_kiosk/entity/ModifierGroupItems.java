@@ -5,17 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
-@Table(name = "roles")
+@Table(name = "modifier_groups_items")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class ModifierGroupItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Integer menuItemId;
 
-    private String description;
+    private Double price;
+
+    private Integer modifierGroupId;
+
 }

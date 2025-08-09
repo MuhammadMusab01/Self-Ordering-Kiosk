@@ -22,22 +22,16 @@ public class Branch {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column
     private String name;
 
-    @Column
     private String address;
 
-    @Column
     private Integer activeKiosk;
 
-    @Column
     private Boolean isActive;
 
-    @Column(name = "opening_time", nullable = false)
     private LocalTime openingTime;
 
-    @Column(name = "closing_time", nullable = false)
     private LocalTime closingTime;
 
     @Enumerated(EnumType.STRING)

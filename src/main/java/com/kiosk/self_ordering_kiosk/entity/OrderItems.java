@@ -19,13 +19,10 @@ public class OrderItems {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column
     private Integer menuItemId;
 
-    @Column
     private Integer quantity;
 
-    @Column
     private Double totalPrice;
 
 }

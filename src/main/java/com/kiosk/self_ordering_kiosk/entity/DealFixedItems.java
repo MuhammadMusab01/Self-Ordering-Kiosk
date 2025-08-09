@@ -5,17 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.awt.*;
+
 @Entity
-@Table(name = "roles")
+@Table(name = "deal_groups")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class DealFixedItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Integer deal_id;
 
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItems menuItem;
+
+    private Integer quantity;
 }

@@ -28,18 +28,13 @@ public class Client {
     @Column(nullable = false)
     private Integer totalBranches;
 
-    @Column
     private String contactPerson;
 
-    @Column
     private String email;
 
-    @Column
     private String phone;
 
-    @Column
     private String address;
 
-    @Column
     private boolean isActive;
 }
