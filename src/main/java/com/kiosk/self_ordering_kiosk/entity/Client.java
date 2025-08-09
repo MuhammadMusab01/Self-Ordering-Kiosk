@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Client {
 
     @Id
@@ -29,17 +28,18 @@ public class Client {
     @Column(nullable = false)
     private Integer totalBranches;
 
-    @Size(max = 100)
+    @Column
     private String contactPerson;
 
-    @Size(max = 100)
+    @Column
     private String email;
 
-    @Size(max = 15)
+    @Column
     private String phone;
 
-    @Size(max = 255)
+    @Column
     private String address;
 
-    private boolean active = true;
+    @Column
+    private boolean active;
 }
