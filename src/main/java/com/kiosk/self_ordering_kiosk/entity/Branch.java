@@ -32,7 +32,7 @@ public class Branch {
     private Integer activeKiosk;
 
     @Column
-    private Boolean active;
+    private Boolean isActive;
 
     @Column(name = "opening_time", nullable = false)
     private LocalTime openingTime;

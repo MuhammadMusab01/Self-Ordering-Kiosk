@@ -6,23 +6,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "kiosk")
+@Table(name = "order_items")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Kiosk {
+public class OrderItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "branch_id", nullable = false)
-    private Branch branch;
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
     @Column
-    private Boolean isActive;
+    private Integer menuItemId;
 
-    @OneToOne
-    @JoinColumn(name = "menu_id", nullable = false)
-    private Menu menu;
+    @Column
+    private Integer quantity;
+
+    @Column
+    private Double totalPrice;
+
 }

@@ -6,23 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "kiosk")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Kiosk {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "branch_id", nullable = false)
-    private Branch branch;
+    @Column
+    private Integer branchId;
 
     @Column
-    private Boolean isActive;
+    private String userName;
 
-    @OneToOne
-    @JoinColumn(name = "menu_id", nullable = false)
-    private Menu menu;
+    @Column
+    private String password;
+
+    @Column
+    private String email;
+
+    @Column
+    private Integer roleId;
 }

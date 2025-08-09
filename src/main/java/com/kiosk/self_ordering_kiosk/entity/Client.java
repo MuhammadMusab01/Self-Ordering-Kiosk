@@ -41,5 +41,5 @@ public class Client {
     private String address;
 
     @Column
-    private boolean active;
+    private boolean isActive;
 }

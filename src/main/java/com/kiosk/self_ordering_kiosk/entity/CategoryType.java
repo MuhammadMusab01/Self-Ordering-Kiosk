@@ -19,6 +19,6 @@ public class CategoryType {
     private String name;
 
     @Column
-    private Boolean active;
+    private Boolean isActive;
 
 }
