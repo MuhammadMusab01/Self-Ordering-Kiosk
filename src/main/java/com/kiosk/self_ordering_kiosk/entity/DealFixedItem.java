@@ -5,22 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
-@Table(name = "modifier_groups_items")
+@Table(name = "deal_groups")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ModifierGroupItems {
+public class DealFixedItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer menuItemId;
+    private Integer deal_id;
 
-    private Double price;
+    @ManyToOne
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItem menuItem;
 
-    private Integer modifierGroupId;
-
+    private Integer quantity;
 }

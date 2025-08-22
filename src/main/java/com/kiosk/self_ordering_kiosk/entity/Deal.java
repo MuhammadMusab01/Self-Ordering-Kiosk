@@ -34,7 +34,7 @@ public class Deal {
             joinColumns = @JoinColumn(name = "deal_id"),
             inverseJoinColumns = @JoinColumn(name = "deal_group_id")
     )
-    private Set<DealGroups> dealGroups = new HashSet<>();
+    private Set<DealGroup> dealGroups = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "banner_id", nullable = false)

@@ -15,7 +15,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DealGroups {
+public class DealGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +26,7 @@ public class DealGroups {
             joinColumns = @JoinColumn(name = "deal_group_id"),
             inverseJoinColumns = @JoinColumn(name = "menu_item_id")
     )
-    private Set<MenuItems> menuItems;
+    private Set<MenuItem> menuItems;
 
     private String name;
 

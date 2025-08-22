@@ -1,5 +1,10 @@
 package com.kiosk.self_ordering_kiosk.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class GeneralResponse {
 
     private String message;

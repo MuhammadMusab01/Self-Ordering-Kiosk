@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.awt.*;
 import java.util.Set;
 
 @Entity
@@ -30,7 +29,7 @@ public class ModifierGroup {
             joinColumns = @JoinColumn(name = "modifier_group_id"),
             inverseJoinColumns = @JoinColumn(name = "menu_item_id")
     )
-    private Set<MenuItems> menuItems;
+    private Set<MenuItem> menuItems;
 
     private Boolean isRequired = false;
 
