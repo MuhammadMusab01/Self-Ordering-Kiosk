@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "client")
+@Table(name = "deals")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +22,7 @@ public class Deal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
     @ManyToOne
@@ -40,12 +41,16 @@ public class Deal {
     @JoinColumn(name = "banner_id", nullable = false)
     private Banner banner;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "base_price")
     private Double basePrice;
 
+    @Column(name = "is_available")
     private boolean isAvailable;
 
+    @Column(name = "is_item_fixed")
     private boolean isItemFixed;
 
     @CreationTimestamp

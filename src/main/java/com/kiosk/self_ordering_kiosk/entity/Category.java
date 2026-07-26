@@ -19,16 +19,20 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "category_type_id")
     private Integer categoryTypeId;
 
+    @Column(name = "menu_id")
     private Integer menuId;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "image", columnDefinition = "TEXT")
     private String image;
 
+    @Column(name = "is_available")
     private Boolean isAvailable;
 
     @CreationTimestamp

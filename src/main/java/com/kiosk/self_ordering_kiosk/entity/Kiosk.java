@@ -19,6 +19,7 @@ public class Kiosk {
     @JoinColumn(name = "branch_id", nullable = false)
     private Branch branch;
 
+    @Column(name = "is_active")
     private Boolean isActive;
 
     @ManyToOne

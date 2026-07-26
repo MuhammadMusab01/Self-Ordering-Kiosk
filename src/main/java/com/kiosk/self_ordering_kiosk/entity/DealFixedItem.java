@@ -15,11 +15,12 @@ public class DealFixedItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "deal_id")
     private Integer deal_id;
 
-    @ManyToOne
-    @JoinColumn(name = "menu_item_id", nullable = false)
-    private MenuItem menuItem;
+    @Column(name = "menu_item_id")
+    private Integer menuItemId;
 
+    @Column(name = "quantity")
     private Integer quantity;
 }

@@ -19,29 +19,34 @@ public class MenuItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
     @Lob
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(name = "image", columnDefinition = "TEXT", nullable = false)
     private String image;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category categoryId;
 
+    @Column(name = "is_special")
     private Boolean isSpecial;
 
+    @Column(name = "base_price")
     private Double basePrice;
 
+    @Column(name = "banner_id")
     private Integer bannerId;
 
+    @Column(name = "deal_id")
     private Integer dealId;
 
+    @Column(name = "is_available")
     private Boolean isAvailable;
 
     @CreationTimestamp

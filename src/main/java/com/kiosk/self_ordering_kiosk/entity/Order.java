@@ -18,23 +18,45 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "order_no")
     private String orderNo;
 
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(name = "status")
     private OrderStatus status;
 
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
+    @Column(name = "kiosk_id")
     private Integer kioskId;
 
+    @Column(name = "total_price")
     private Double totalPrice;
 
+    @Column(name = "order_tip")
     private Double orderTip;
 
+    @Column(name = "payment_id")
     private Integer paymentId;
 
+    @Column(name = "special_instructions")
     private String specialInstructions;
 
+    @Column(name = "serving_time")
     private Integer servingTime;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void onCreate() {
+        orderDate = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

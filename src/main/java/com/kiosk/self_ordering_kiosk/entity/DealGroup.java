@@ -22,18 +22,22 @@ public class DealGroup {
 
     @ManyToMany
     @JoinTable(
-            name = "menu_item_modifier_group",
+            name = "deal_group_menu_items",
             joinColumns = @JoinColumn(name = "deal_group_id"),
             inverseJoinColumns = @JoinColumn(name = "menu_item_id")
     )
     private Set<MenuItem> menuItems;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "is_required")
     private Boolean isRequired = false;
 
+    @Column(name = "min_limit")
     private Integer minLimit;
 
+    @Column(name = "max_limit")
     private Integer maxLimit;
 
     @CreationTimestamp

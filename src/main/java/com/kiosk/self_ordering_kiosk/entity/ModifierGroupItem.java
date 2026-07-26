@@ -15,10 +15,13 @@ public class ModifierGroupItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "menu_item_id")
     private Integer menuItemId;
 
+    @Column(name = "price")
     private Double price;
 
+    @Column(name = "modifier_group_id")
     private Integer modifierGroupId;
 
 }

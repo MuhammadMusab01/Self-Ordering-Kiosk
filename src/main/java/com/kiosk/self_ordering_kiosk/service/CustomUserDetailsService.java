@@ -1,10 +1,9 @@
 package com.kiosk.self_ordering_kiosk.service;
 
-import com.kiosk.self_ordering_kiosk.UserRepository;
 import com.kiosk.self_ordering_kiosk.exception.GeneralException;
-import lombok.AllArgsConstructor;
+import com.kiosk.self_ordering_kiosk.repository.UserRepository;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.core.userdetails.User;
+import com.kiosk.self_ordering_kiosk.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,10 +23,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
- //       com.kiosk.self_ordering_kiosk.entity.User user = userRepository.findByUserName(username)
- //               .orElseThrow(() -> new GeneralException(202, "User not found: " + username));
-        return User.withUsername("admin")
-                .password(passwordEncoder.encode("1234"))
+        User user = userRepository.findByUserName(username)
+                .orElseThrow(() -> new GeneralException(202, "User not found: " + username));
+        return org.springframework.security.core.userdetails.User.withUsername(user.getUserName())
+                .password(passwordEncoder.encode(user.getPassword()))
                 .build();
     }
 }

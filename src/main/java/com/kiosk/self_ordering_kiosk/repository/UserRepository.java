@@ -1,4 +1,4 @@
-package com.kiosk.self_ordering_kiosk;
+package com.kiosk.self_ordering_kiosk.repository;
 
 import com.kiosk.self_ordering_kiosk.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

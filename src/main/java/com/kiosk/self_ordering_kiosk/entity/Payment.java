@@ -31,8 +31,10 @@ public class Payment {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "order_id")
     private Integer orderId;
 
+    @Column(name = "amount")
     private Double amount;
 
     @Enumerated(EnumType.STRING)

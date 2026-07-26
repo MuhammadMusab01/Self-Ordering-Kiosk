@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "client")
+@Table(name = "clients")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,16 +25,21 @@ public class Client {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "total_branches", nullable = false)
     private Integer totalBranches;
 
+    @Column(name = "contact_person")
     private String contactPerson;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "phone")
     private String phone;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "is_active")
     private boolean isActive;
 }

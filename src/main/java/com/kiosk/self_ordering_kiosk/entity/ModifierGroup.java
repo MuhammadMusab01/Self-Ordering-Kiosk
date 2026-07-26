@@ -17,10 +17,12 @@ public class ModifierGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "modifier_type", nullable = false)
     private ModifierType modifierTypeId;
 
+    @Column(name = "name")
     private String name;
 
     @ManyToMany
@@ -31,12 +33,16 @@ public class ModifierGroup {
     )
     private Set<MenuItem> menuItems;
 
+    @Column(name = "is_required")
     private Boolean isRequired = false;
 
+    @Column(name = "min_limit")
     private Integer minLimit;
 
+    @Column(name = "max_limit")
     private Integer maxLimit;
 
+    @Column(name = "is_available")
     private Boolean isAvailable;
 
 }
